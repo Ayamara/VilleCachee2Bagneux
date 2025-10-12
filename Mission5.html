@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Mission 5 - La Ville Cachée</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Creepster', cursive, sans-serif;
+    background-color: #0d0d0d;
+    background-image: url('https://i.imgur.com/ZtQwLRy.png');
+    background-size: cover;
+    color: #ff4d4d;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: auto;
+    padding: 25px;
+    background-color: rgba(0,0,0,0.85);
+    border: 3px solid #ff1a1a;
+    border-radius: 20px;
+    box-shadow: 0 0 25px #ff0000;
+    margin-top: 40px;
+  }
+
+  h1, h2 {
+    text-align: center;
+    text-shadow: 2px 2px 5px black;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  li {
+    margin-bottom: 10px;
+  }
+
+  .suspect {
+    background-color: rgba(255, 0, 0, 0.1);
+    border-left: 5px solid #ff1a1a;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+
+  .questions {
+    margin-top: 25px;
+  }
+
+  input[type="text"] {
+    display: block;
+    margin: 15px auto;
+    padding: 12px;
+    width: 80%;
+    font-size: 16px;
+    border: 2px solid #ff1a1a;
+    border-radius: 8px;
+    background-color: #1a1a1a;
+    color: white;
+  }
+
+  button {
+    display: block;
+    margin: 20px auto;
+    padding: 15px 35px;
+    background-color: #ff1a1a;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 0 12px red;
+  }
+
+  button:hover {
+    transform: scale(1.1);
+    background-color: #e60000;
+  }
+
+  #result {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 15px;
+  }
+</style>
+</head>
+<body>
+
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_64d0bb7390.mp3?filename=horror-background-112202.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+  <h1>Mission 5 : Liaisons Cachées</h1>
+  <h2>Interrogez les suspects</h2>
+
+  <p>Inspecteur, Inspectrice, il est temps de se concentrer sur <strong>Pape</strong> et <strong>Maya</strong>.  
+  Leur lien étrange : Pape et Maya semblent cacher un secret commun lié à la victime… un pacte ancien ou une dette mystérieuse.</p>
+
+  <div class="suspect">
+    <h3>Pape – Son ami d’enfance</h3>
+    <p>Pape dit qu’il était à un événement familial, mais des témoins disent l’avoir vu près du domicile de la victime. Il semblait inquiet, comme s’il protégeait quelqu’un.</p>
+  </div>
+
+  <div class="suspect">
+    <h3>Maya – Sa meilleure amie</h3>
+    <p>Maya affirme ne pas être intervenue dans l’affaire, mais un carnet retrouvé chez elle contient des notes codées évoquant la victime et Pape. Une complicité secrète semble pointer vers un mobile caché.</p>
+  </div>
+
+  <div class="questions">
+    <h2>Questions à poser</h2>
+    <ul>
+      <li>1️⃣ Quel secret relie Pape et Maya à la victime ?</li>
+      <li>2️⃣ Où étaient-ils réellement le soir du meurtre ?</li>
+      <li>3️⃣ Leur complicité pourrait-elle indiquer une participation indirecte au crime ?</li>
+      <li>4️⃣ Que révèlent les preuves écrites ou matérielles ?</li>
+      <li>5️⃣ Quels éléments contredisent leurs alibis ?</li>
+    </ul>
+  </div>
+
+  <p>👉 Notez ici les <strong>5 mots-clés</strong> les plus importants que vous avez relevés pendant les interrogatoires.</p>
+
+  <input type="text" id="secret" placeholder="Entrez les mots-clés ici...">
+
+  <button onclick="verifier()">Valider la mission</button>
+
+  <p id="result"></p>
+</div>
+
+<script>
+function verifier() {
+  const reponse = document.getElementById("secret").value.trim().toLowerCase();
+  // mots-clés pour ce duo
+  if (reponse.includes("pacte") && reponse.includes("caché") && reponse.includes("témoins") && reponse.includes("carnet") && reponse.includes("complicité")) {
+    document.getElementById("result").innerHTML = "✅ Bravo, Inspecteur/Inspectrice ! Vous avez percé les secrets de ce duo… Le mot de passe suivant est : <b>ombrespm2025</b>";
+  } else {
+    document.getElementById("result").innerHTML = "❌ Ce n’est pas encore ça… continuez à interroger et recoupez les indices.";
+  }
+}
+</script>
+
+</body>
+</html>

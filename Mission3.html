@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Mission 3 - La Ville Cachée</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Creepster', cursive, sans-serif;
+    background-color: #0d0d0d;
+    background-image: url('https://i.imgur.com/ZtQwLRy.png');
+    background-size: cover;
+    color: #ff4d4d;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: auto;
+    padding: 25px;
+    background-color: rgba(0,0,0,0.85);
+    border: 3px solid #ff1a1a;
+    border-radius: 20px;
+    box-shadow: 0 0 25px #ff0000;
+    margin-top: 40px;
+  }
+
+  h1, h2 {
+    text-align: center;
+    text-shadow: 2px 2px 5px black;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  li {
+    margin-bottom: 10px;
+  }
+
+  .suspect {
+    background-color: rgba(255, 0, 0, 0.1);
+    border-left: 5px solid #ff1a1a;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+
+  .questions {
+    margin-top: 25px;
+  }
+
+  input[type="text"] {
+    display: block;
+    margin: 15px auto;
+    padding: 12px;
+    width: 80%;
+    font-size: 16px;
+    border: 2px solid #ff1a1a;
+    border-radius: 8px;
+    background-color: #1a1a1a;
+    color: white;
+  }
+
+  button {
+    display: block;
+    margin: 20px auto;
+    padding: 15px 35px;
+    background-color: #ff1a1a;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 0 12px red;
+  }
+
+  button:hover {
+    transform: scale(1.1);
+    background-color: #e60000;
+  }
+
+  #result {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 15px;
+  }
+</style>
+</head>
+<body>
+
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_64d0bb7390.mp3?filename=horror-background-112202.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+  <h1>Mission 3 : Liens Familiaux Troublants</h1>
+  <h2>Interrogez les suspects</h2>
+
+  <p>Inspecteur, Inspectrice, cette fois, votre attention se porte sur <strong>Noah</strong> et <strong>Oumayra</strong>.  
+  Leur lien étrange : Noah est le copain de la victime et Oumayra sa sœur. Mais des tensions familiales profondes pourraient cacher bien des secrets…</p>
+
+  <div class="suspect">
+    <h3>Noah – Son copain</h3>
+    <p>Noah assure avoir passé la soirée à préparer un dîner romantique. Pourtant, des traces de sang sur son gilet et une dispute téléphonique avec Oumayra la veille interrogent les enquêteurs. Son attachement semble dévorant… ou possessif.</p>
+  </div>
+
+  <div class="suspect">
+    <h3>Oumayra – Sa sœur</h3>
+    <p>Oumayra prétend être restée chez elle. Cependant, la voisine l’a aperçue entrant dans l’appartement de la victime à 21h30, et elle semblait très agitée. Leur querelle familiale pourrait cacher un mobile…</p>
+  </div>
+
+  <div class="questions">
+    <h2>Questions à poser</h2>
+    <ul>
+      <li>1️⃣ Où étaient-ils exactement la veille et le jour du meurtre ?</li>
+      <li>2️⃣ Quelle était la nature exacte de leur dispute ?</li>
+      <li>3️⃣ Que révèlent les traces de sang sur Noah ?</li>
+      <li>4️⃣ Oumayra avait-elle un mobile personnel ou familial ?</li>
+      <li>5️⃣ Leurs alibis sont-ils cohérents ou contradictoires ?</li>
+    </ul>
+  </div>
+
+  <p>👉 Notez ici les <strong>5 mots-clés</strong> les plus importants que vous avez relevés pendant les interrogatoires.</p>
+
+  <input type="text" id="secret" placeholder="Entrez les mots-clés ici...">
+
+  <button onclick="verifier()">Valider la mission</button>
+
+  <p id="result"></p>
+</div>
+
+<script>
+function verifier() {
+  const reponse = document.getElementById("secret").value.trim().toLowerCase();
+  // mots-clés pour ce duo
+  if (reponse.includes("dispute") && reponse.includes("sang") && reponse.includes("alibi") && reponse.includes("famille") && reponse.includes("voisine")) {
+    document.getElementById("result").innerHTML = "✅ Bravo, Inspecteur/Inspectrice ! Vous avez percé les secrets familiaux... Le mot de passe suivant est : <b>ombresnofra2025</b>";
+  } else {
+    document.getElementById("result").innerHTML = "❌ Ce n’est pas encore ça… continuez à interroger et recoupez les indices.";
+  }
+}
+</script>
+
+</body>
+</html>

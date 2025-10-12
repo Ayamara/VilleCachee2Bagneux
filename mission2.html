@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Mission 2 - La Ville Cachée</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Creepster', cursive, sans-serif;
+    background-color: #0d0d0d;
+    background-image: url('https://i.imgur.com/ZtQwLRy.png');
+    background-size: cover;
+    color: #ff4d4d;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: auto;
+    padding: 25px;
+    background-color: rgba(0,0,0,0.85);
+    border: 3px solid #ff1a1a;
+    border-radius: 20px;
+    box-shadow: 0 0 25px #ff0000;
+    margin-top: 40px;
+  }
+
+  h1, h2 {
+    text-align: center;
+    text-shadow: 2px 2px 5px black;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  li {
+    margin-bottom: 10px;
+  }
+
+  .suspect {
+    background-color: rgba(255, 0, 0, 0.1);
+    border-left: 5px solid #ff1a1a;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+
+  .questions {
+    margin-top: 25px;
+  }
+
+  input[type="text"] {
+    display: block;
+    margin: 15px auto;
+    padding: 12px;
+    width: 80%;
+    font-size: 16px;
+    border: 2px solid #ff1a1a;
+    border-radius: 8px;
+    background-color: #1a1a1a;
+    color: white;
+  }
+
+  button {
+    display: block;
+    margin: 20px auto;
+    padding: 15px 35px;
+    background-color: #ff1a1a;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 0 12px red;
+  }
+
+  button:hover {
+    transform: scale(1.1);
+    background-color: #e60000;
+  }
+
+  #result {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 15px;
+  }
+</style>
+</head>
+<body>
+
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_64d0bb7390.mp3?filename=horror-background-112202.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+  <h1>Mission 2 : Secrets de Bureau</h1>
+  <h2>Interrogez les suspects</h2>
+
+  <p>Inspecteur, Inspectrice, la deuxième piste vous conduit à un duo mystérieux : <strong>Oumayma</strong> et <strong>Kyle</strong>.  
+  Leur lien est étrange : collègue et amis depuis l’enfance, ils semblent cacher des informations liées à la victime. Leurs alibis sont troubles… et leurs intentions obscures.</p>
+
+  <div class="suspect">
+    <h3>Oumayma – Prof de Pilates</h3>
+    <p>Oumayma donnait des cours à domicile. Elle affirme avoir quitté l’appartement de la victime à 20h, mais son sac a été retrouvé près de la scène du crime, et elle avait des taches rouges sur ses chaussures. Son lien avec Kyle pourrait expliquer certains comportements suspects.</p>
+  </div>
+
+  <div class="suspect">
+    <h3>Kyle – Collègue de travail</h3>
+    <p>Kyle prétend avoir été chez lui toute la soirée. Cependant, les caméras de l’immeuble montrent qu’il est passé à proximité de l’appartement vers 21h15. Il semble vouloir protéger Oumayma, ce qui intrigue l’enquête.</p>
+  </div>
+
+  <div class="questions">
+    <h2>Questions à poser</h2>
+    <ul>
+      <li>1️⃣ Où se trouvaient-ils exactement à 20h-22h ?</li>
+      <li>2️⃣ Pourquoi Oumayma avait-elle des taches sur ses chaussures ?</li>
+      <li>3️⃣ Que savent-ils l’un de l’autre qui pourrait être utile à l’enquête ?</li>
+      <li>4️⃣ Quel est le rôle de Kyle dans la protection d’Oumayma ?</li>
+      <li>5️⃣ Leurs alibis s’accordent-ils ou sont-ils incohérents ?</li>
+    </ul>
+  </div>
+
+  <p>👉 Notez ici les <strong>5 mots-clés</strong> les plus importants que vous avez relevés pendant les interrogatoires.</p>
+
+  <input type="text" id="secret" placeholder="Entrez les mots-clés ici...">
+
+  <button onclick="verifier()">Valider la mission</button>
+
+  <p id="result"></p>
+</div>
+
+<script>
+function verifier() {
+  const reponse = document.getElementById("secret").value.trim().toLowerCase();
+  // mots-clés pour ce duo
+  if (reponse.includes("tache") && reponse.includes("protection") && reponse.includes("caméra") && reponse.includes("alibi") && reponse.includes("secret")) {
+    document.getElementById("result").innerHTML = "✅ Bravo, Inspecteur/Inspectrice ! Vous avez percé les secrets de ce duo... Le mot de passe suivant est : <b>ombresouky2025</b>";
+  } else {
+    document.getElementById("result").innerHTML = "❌ Ce n’est pas encore ça… continuez à interroger et recoupez les indices.";
+  }
+}
+</script>
+
+</body>
+</html>

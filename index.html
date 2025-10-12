@@ -1,32 +1,258 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>La Ville Cachée de Bagneux</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>La Ville Cachée — Bagneux (Accès Enquête)</title>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+  *{box-sizing:border-box;}
+  html,body{height:100%;margin:0;font-family:Roboto,sans-serif;background:#050304;color:#f7eae9;}
+  
+  body{
+    background-color:#050304;
+    background-image:
+      url("bg-ghosts.png"),
+      linear-gradient(180deg, rgba(10,2,2,0.85), rgba(0,0,0,0.98));
+    background-repeat: repeat, no-repeat;
+    background-size: auto, cover;
+  }
+
+  .blood-overlay{
+    position:fixed; inset:0;
+    pointer-events:none;
+    background-image: url("blood-large.png");
+    background-repeat:no-repeat;
+    background-position:center bottom;
+    background-size:100% auto;
+    opacity:0.85;
+    mix-blend-mode:multiply;
+  }
+
+  .vignette{
+    position:fixed; inset:0;
+    background:radial-gradient(ellipse at center, rgba(120,0,0,0.03), rgba(0,0,0,0.8));
+    pointer-events:none;
+  }
+
+  .stage{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 18px;
+    text-align:center;
+  }
+
+  .card{
+    width:100%;
+    max-width:980px;
+    background: linear-gradient(180deg, rgba(8,4,4,0.55), rgba(0,0,0,0.75));
+    border: 1px solid rgba(200,0,0,0.14);
+    padding:28px;
+    border-radius:14px;
+    box-shadow:0 30px 80px rgba(0,0,0,0.85);
+    backdrop-filter: blur(3px);
+    position:relative;
+    overflow:hidden;
+  }
+
+  h1{
+    font-family:"Cinzel Decorative", serif;
+    font-size:clamp(32px,4.6vw,54px);
+    color:#ff5050;
+    margin:0 0 14px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    text-shadow:0 0 18px rgba(255,30,30,0.12),0 8px 28px rgba(0,0,0,0.8);
+    position:relative;
+  }
+
+  h1::after{
+    content:"";
+    position:absolute;
+    left:25%;
+    right:25%;
+    bottom:-10px;
+    height:40px;
+    background-image:url('blood-drips.png');
+    background-size:contain;
+    background-repeat:no-repeat;
+    opacity:0.95;
+    transform-origin:center;
+    animation: drip 3s infinite;
+  }
+
+  @keyframes drip{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(4px);}
+    100%{transform:translateY(0);}
+  }
+
+  .scenario{
+    color:#f1dbd9;
+    font-size:1.05rem;
+    line-height:1.7;
+    text-align:left;
+    max-width:820px;
+    margin:12px auto 18px;
+  }
+
+  .scenario b{color:#ffd7d7;}
+  .scenario .attention{color:#ff5050;font-weight:700;margin-right:6px;}
+
+  .suspects{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:12px 0 10px;
+    justify-content:flex-start;
+  }
+  .suspect{
+    background: rgba(255,255,255,0.03);
+    padding:6px 10px;
+    border-radius:8px;
+    border:1px solid rgba(255,0,0,0.06);
+    font-weight:600;
+    color:#ffe6e6;
+    font-size:0.95rem;
+  }
+
+  .controls{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    justify-content:center;
+    margin-top:18px;
+    flex-wrap:wrap;
+  }
+  input[type="password"]{
+    min-width:300px;
+    max-width:520px;
+    padding:12px 14px;
+    border-radius:10px;
+    border:1px solid rgba(255,20,20,0.18);
+    background:rgba(0,0,0,0.55);
+    color:#fff;
+    font-size:1rem;
+    outline:none;
+    box-shadow:0 6px 18px rgba(0,0,0,0.6);
+  }
+  input::placeholder{color:rgba(255,200,200,0.4);}
+
+  button.btn{
+    padding:12px 18px;
+    border-radius:10px;
+    border:none;
+    background:linear-gradient(180deg,#ff6060,#d62828);
+    color:#fff;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 8px 30px rgba(200,20,20,0.12);
+  }
+  button.btn:active{transform:translateY(2px);}
+
+  .msg{margin-top:12px;height:20px;color:#ffdede;font-weight:700;}
+
+  .note{font-size:0.85rem;color:#e3d2d2;margin-top:10px;}
+
+  .splat{
+    position:absolute;
+    right:-40px; top:-40px;
+    width:220px; height:220px;
+    background-image: url('blood-splat-small.png');
+    background-size: cover;
+    opacity:0.9;
+  }
+
+  @media (max-width:720px){
+    .card{padding:18px;}
+    .suspects{justify-content:center;}
+    h1::after{left:12%;right:12%;}
+  }
+
+</style>
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="https://cdn.pixabay.com/download/audio/2023/02/15/audio_87914416e2.mp3" type="audio/mpeg">
-  </audio>
 
-  <div class="overlay">
-    <h1>🔒 Accès Restreint 🔒</h1>
-    <p>Entrez la clé pour pénétrer dans <span>La Ville Cachée de Bagneux</span>...</p>
-    <input type="password" id="keyInput" placeholder="Entrez la clé secrète" />
-    <button onclick="checkKey()">Entrer</button>
-    <p id="message"></p>
+<audio id="amb" loop preload="auto">
+  <source src="ambient-dark.mp3" type="audio/mpeg">
+</audio>
+
+<div class="blood-overlay"></div>
+<div class="vignette"></div>
+
+<section class="stage">
+  <div class="card">
+    <div class="splat"></div>
+
+    <h1>LA VILLE CACHÉE — BAGNEUX</h1>
+
+    <div class="scenario">
+      <p><span class="attention">⚠️</span><b>Un meurtre a démantelé la ville de Bagneux.</b> Une femme a été retrouvée morte à son domicile.</p>
+
+      <p><strong>Inspecteur / Inspectrice,</strong> votre mission : retrouver le ou la coupable à travers l’enquête que vous mènerez.</p>
+
+      <p>Douze suspects :</p>
+      <div class="suspects">
+        <span class="suspect">Noah — son copain</span>
+        <span class="suspect">David — son patron</span>
+        <span class="suspect">Maya — sa meilleure amie</span>
+        <span class="suspect">Yanco — son ex</span>
+        <span class="suspect">Pape — son ami d’enfance</span>
+        <span class="suspect">Oumayra — sa sœur</span>
+        <span class="suspect">Cathy — sa pire ennemie</span>
+        <span class="suspect">Hawa — sa voisine</span>
+        <span class="suspect">Oumayma — sa prof de pilates</span>
+        <span class="suspect">Kyle — son collègue</span>
+        <span class="suspect">Nezir — son harceleur</span>
+        <span class="suspect">Tatiana — la femme de ménage</span>
+      </div>
+
+      <p>Pour accéder aux données confidentielles de l’enquête, entrez le mot de passe obtenu via le QR code.</p>
+
+      <p class="note"><span class="attention">⚠️</span>Les places pour la nocturne du Parc Astérix sont limitées !</p>
+
+      <div class="controls">
+        <input type="password" id="passwordInput" placeholder="Entrez le mot de passe">
+        <button class="btn" id="checkBtn">Valider</button>
+      </div>
+      <div class="msg" id="message"></div>
+
+    </div>
   </div>
+</section>
 
-  <footer>
-    <p>
-      “La Ville Cachée de Bagneux ne s’ouvre qu’à ceux qui détiennent la clé.<br>
-      Oserez-vous tenter d’y entrer ?<br>
-      Ceux qui y parviennent auront accès à un ultime secret… la <strong>Grande Sortie au Parc Astérix 🎢</strong>.”
-    </p>
-  </footer>
+<script>
+  // Musique qui démarre au premier clic
+  document.addEventListener('click', function(){
+    document.getElementById('amb').play();
+  }, {once:true});
 
-  <script src="script.js"></script>
+  // Vérification mot de passe et redirection
+  const password = "meurtreauvillage2bagneux"; // mot de passe pour cette page
+  const input = document.getElementById("passwordInput");
+  const btn = document.getElementById("checkBtn");
+  const msg = document.getElementById("message");
+
+  btn.addEventListener("click", function(){
+    const enteredPw = input.value.trim().toLowerCase();
+    if(enteredPw === password.toLowerCase()){
+      msg.style.color = "#80ff80";
+      msg.textContent = "✅ Accès autorisé ! Bienvenue dans l’enquête…";
+
+      // Redirection directe vers la page contexte
+      window.location.href = "contexte.html";
+    } else {
+      msg.style.color = "#ff5050";
+      msg.textContent = "❌ Mot de passe incorrect… Réessayez !";
+    }
+  });
+</script>
+
 </body>
 </html>

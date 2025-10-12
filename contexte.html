@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>La Ville Cachée - Contexte</title>
+<style>
+  /* ----- DESIGN HORREUR ----- */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Creepster', cursive, sans-serif;
+    background-color: #0d0d0d;
+    background-image: url('https://i.imgur.com/4K1vN3p.png'); /* motifs fantômes / sang */
+    background-size: cover;
+    color: #ff4d4d;
+    line-height: 1.6;
+  }
+
+  h1, h2 {
+    text-align: center;
+    color: #ff1a1a;
+    text-shadow: 2px 2px 4px #000;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.7);
+    border: 3px solid #ff1a1a;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #ff0000;
+  }
+
+  p {
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+
+  ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  li {
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+
+  button {
+    display: block;
+    margin: 30px auto;
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: #ff1a1a;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px #ff0000;
+    transition: transform 0.2s;
+  }
+
+  button:hover {
+    transform: scale(1.1);
+    background-color: #e60000;
+  }
+</style>
+</head>
+<body>
+
+<!-- Musique de fond -->
+<audio autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  Votre navigateur ne supporte pas la lecture audio.
+</audio>
+
+<div class="container">
+  <h1>La Ville Cachée de Bagneux</h1>
+  <h2>Contexte de l’enquête</h2>
+
+  <p>Inspecteur, Inspectrice, la ville de Bagneux est en émoi. Un meurtre a été perpétré, et une femme a été retrouvée morte à son domicile. Comment est-elle morte ? Et pourquoi était-elle la cible de son meurtrier ?</p>
+
+  <p>Voici votre mission : retrouver le ou la coupable à travers les enquêtes que vous allez mener. Mais avant de prouver votre valeur, vous devez démontrer que vous êtes digne de confiance et capable de réfléchir comme un véritable détective.</p>
+
+  <h2>Les suspects</h2>
+  <ul>
+    <li><strong>Noah</strong> - son copain : tensions récentes et jalousie.</li>
+    <li><strong>David</strong> - son patron : conflit professionnel sur un projet important.</li>
+    <li><strong>Maya</strong> - sa meilleure amie : rivalité cachée pour raisons personnelles.</li>
+    <li><strong>Yanco</strong> - son ex : rancune suite à la rupture.</li>
+    <li><strong>Pape</strong> - ami d’enfance : jalousie pour un succès ou relation.</li>
+    <li><strong>Oumayra</strong> - sa sœur : conflit familial ou héritage.</li>
+    <li><strong>Cathy</strong> - sa pire ennemie : vengeance ou jalousie directe.</li>
+    <li><strong>Hawa</strong> - sa voisine : connaissait ses habitudes et pouvait être jalouse.</li>
+    <li><strong>Oumayma</strong> - sa prof de pilates : accès à domicile pour ses cours.</li>
+    <li><strong>Kyle</strong> - son collègue de travail : disputes ou désaccords professionnels.</li>
+    <li><strong>Nezir</strong> - son harceleur : surveillait la victime et connaissait son planning.</li>
+    <li><strong>Tatiana</strong> - femme de ménage : accès aux clés et connaissance de ses habitudes.</li>
+  </ul>
+
+  <p>Pour débloquer la première mission, vous devrez utiliser votre esprit de déduction et votre cohésion d’équipe. Une fois la mission commencée, vous pourrez interroger les suspects et relever les indices essentiels pour progresser.</p>
+
+  <p><strong>Attention :</strong> Les places pour la grande sortie (Nocturne Parc Astérix) sont limitées. Réfléchissez bien avant de partager vos réponses avec vos amis !</p>
+
+
+</body>
+</html>
+</div>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>La Ville Cachée — Contexte & Missions</title>
+<style>
+  body{background:#050304;color:#f7eae9;font-family:Roboto,Arial,sans-serif;margin:0;padding:30px}
+  .wrap{max-width:1000px;margin:0 auto}
+  h1{color:#ff5050;text-align:center}
+  .card{background:rgba(0,0,0,0.7);padding:20px;border-radius:12px;border:1px solid rgba(255,20,20,0.12);box-shadow:0 10px 40px rgba(0,0,0,0.7)}
+  .missions{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
+  .m{padding:14px;border-radius:10px;background:rgba(30,0,0,0.25);border:1px solid rgba(255,10,10,0.08);display:flex;justify-content:space-between;align-items:center}
+  .m.locked{opacity:0.85}
+  .m .title{font-weight:700}
+  .btn{background:#ff5757;border:none;padding:10px 14px;border-radius:10px;color:#fff;cursor:pointer}
+  .btn.ghost{background:transparent;border:1px solid rgba(255,80,80,0.15)}
+  footer{margin-top:16px;color:#bda; font-size:.9rem}
+  @media(max-width:720px){.missions{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>La Ville Cachée — Contexte & Missions</h1>
+
+    <div class="card">
+      <h2>Contexte résumé</h2>
+      <p>Vous avez accès au dossier de l’enquête. Lisez attentivement le contexte (victime, suspects, règles).  
+      En bas, la liste des missions : la Mission 1 est accessible. Les autres sont verrouillées.  
+      Pour ouvrir une mission verrouillée vous devez entrer le code secret obtenu dans la mission précédente.</p>
+
+      <p style="text-align:center;margin-top:10px">
+        <button class="btn" id="start1">Commencer la première mission</button>
+      </p>
+
+      <h3 style="margin-top:18px">Missions</h3>
+      <div class="missions" id="missionsList">
+        <!-- Les items seront générés par JS -->
+      </div>
+
+      <p style="margin-top:14px;color:#ffdede">Astuce : notez chaque code révélé à la fin de chaque mission. Vous en aurez besoin pour débloquer la suivante.</p>
+    </div>
+
+    <footer>La Ville Cachée — Bagneux • Jeu d'enquête</footer>
+  </div>
+
+<script>
+/* ======= CONFIG DES MISSIONS =======
+ ordre des pages : mission1.html ... mission6.html
+ pour accéder à mission N (N>1) il faut le code révélé par mission N-1
+ on utilise localStorage pour enregistrer les codes trouvés durant le jeu
+*/
+const missions = [
+  { id:1, title:"Mission 1 — Tatiana & Nezir", file:"mission1.html", requiredCode:null /* accessible directement */ },
+  { id:2, title:"Mission 2 — Oumayma & Kyle", file:"mission2.html", requiredCode:"ombretat2025" },
+  { id:3, title:"Mission 3 — Noah & Oumayra", file:"mission3.html", requiredCode:"ombresouky2025" },
+  { id:4, title:"Mission 4 — Cathy & Yanco", file:"mission4.html", requiredCode:"ombresnofra2025" },
+  { id:5, title:"Mission 5 — Pape & Maya", file:"mission5.html", requiredCode:"ombrescy2025" },
+  { id:6, title:"Mission 6 — Hawa & David", file:"mission6.html", requiredCode:"ombrespm2025" } // mission6 requires code from mission5
+];
+
+// helper : key names in localStorage
+function keyDone(n){ return 'mission'+n+'_done'; }
+function keyCode(n){ return 'mission'+n+'_code'; }
+
+// génération de la liste
+const listEl = document.getElementById('missionsList');
+missions.forEach(m=>{
+  const div = document.createElement('div');
+  div.className = 'm';
+  // si mission est done (validée) on la marque déverrouillée
+  const done = localStorage.getItem(keyDone(m.id)) === 'true';
+  const title = document.createElement('div');
+  title.innerHTML = `<div class="title">${m.title}</div><div style="font-size:.85rem;color:#d8bcbc">Fichier : ${m.file}</div>`;
+  div.appendChild(title);
+
+  const right = document.createElement('div');
+
+  if(m.id === 1 || done){
+    // accessible → lien direct
+    const a = document.createElement('button');
+    a.className = 'btn';
+    a.textContent = done ? '🔓 Ouvrir' : '▶️ Accéder';
+    a.onclick = ()=> { window.location.href = m.file; };
+    right.appendChild(a);
+  } else {
+    // verrouillé → bouton pour entrer code
+    const a = document.createElement('button');
+    a.className = 'btn ghost';
+    a.textContent = '🔒 Verrouillé';
+    a.onclick = ()=> tryUnlock(m);
+    right.appendChild(a);
+  }
+
+  div.appendChild(right);
+  listEl.appendChild(div);
+});
+
+// bouton commencer mission1
+document.getElementById('start1').addEventListener('click', ()=> window.location.href = 'mission1.html');
+
+/* fonction d'unlock : demande le code et vérifie */
+function tryUnlock(mission){
+  // code attendu : priorité au code stocké (si précédent a été fait) sinon au code "officiel" requiredCode
+  const prevIndex = mission.id - 1;
+  const storedPrevKey = localStorage.getItem(keyCode(prevIndex)); // ex: 'ombretat2025'
+  const officialRequired = mission.requiredCode; // valeur que nous avons codée (ex: "ombretat2025")
+
+  const answer = prompt(`Accès à ${mission.title} — Entrez le code secret obtenu depuis la mission précédente :`);
+  if (!answer) return;
+
+  const ans = answer.trim().toLowerCase();
+  const okStored = storedPrevKey && ans === storedPrevKey.toLowerCase();
+  const okOfficial = officialRequired && ans === officialRequired.toLowerCase();
+
+  if (okStored || okOfficial){
+    // marquer la mission comme "déverrouillée" (mais pas encore "faite")
+    localStorage.setItem(keyDone(mission.id), 'true');
+    // si possible, stocker aussi le code utilisé pour déverrouiller (pratique)
+    localStorage.setItem(keyCode(mission.id-1), ans);
+    alert(`✅ Accès autorisé — ouverture de ${mission.title}`);
+    // redirection vers la mission
+    window.location.href = mission.file;
+  } else {
+    alert('❌ Code invalide. Vous ne pouvez pas ouvrir cette mission pour l’instant.');
+  }
+}
+
+/* Mettre à jour l'affichage après unlocks */
+window.addEventListener('focus', ()=> location.reload());
+</script>
+</body>
+</html>
