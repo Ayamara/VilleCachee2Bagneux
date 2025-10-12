@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Ville Cachée de Bagneux</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2023/02/15/audio_87914416e2.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="overlay">
+    <h1>🔒 Accès Restreint 🔒</h1>
+    <p>Entrez la clé pour pénétrer dans <span>La Ville Cachée de Bagneux</span>...</p>
+    <input type="password" id="keyInput" placeholder="Entrez la clé secrète" />
+    <button onclick="checkKey()">Entrer</button>
+    <p id="message"></p>
+  </div>
+
+  <footer>
+    <p>
+      “La Ville Cachée de Bagneux ne s’ouvre qu’à ceux qui détiennent la clé.<br>
+      Oserez-vous tenter d’y entrer ?<br>
+      Ceux qui y parviennent auront accès à un ultime secret… la <strong>Grande Sortie au Parc Astérix 🎢</strong>.”
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

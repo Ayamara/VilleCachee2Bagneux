@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mission Finale - La Ville Cachée</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="overlay">
+    <h1>🎯 Mission Finale 🎯</h1>
+    <p>Bravo ! Vous avez trouvé toutes les missions… mais voici le dernier défi.</p>
+
+    <p>Résolvez l’énigme pour obtenir le code d’accès à la <strong>Grande Sortie au Parc Astérix</strong> :</p>
+
+    <p><em>“Je suis un lieu où l’aventure et la magie s’unissent,  
+    mon nom commence par A et finit par X. Quel est mon nom ?”</em></p>
+
+    <input type="text" id="finalKey" placeholder="Entrez votre réponse" />
+    <button onclick="checkFinalKey()">Valider</button>
+    <p id="finalMessage"></p>
+  </div>
+
+  <script>
+    function checkFinalKey() {
+      const finalKey = document.getElementById("finalKey").value.toLowerCase();
+      const finalMessage = document.getElementById("finalMessage");
+
+      if (finalKey === "parc astérix" || finalKey === "parc asterix") {
+        finalMessage.style.color = "lime";
+        finalMessage.innerHTML = "✅ Félicitations ! Vous avez débloqué la Grande Sortie ! <br> Préparez-vous pour l’aventure ! 🎢";
+      } else {
+        finalMessage.style.color = "red";
+        finalMessage.textContent = "❌ Ce n’est pas encore la bonne réponse… Cherchez bien dans vos missions !";
+      }
+    }
+  </script>
+</body>
+</html>
