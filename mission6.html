@@ -2,12 +2,13 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mission 6 - La Ville Cachée</title>
 <style>
   body {
     margin: 0;
     padding: 0;
-    font-family: 'Creepster', cursive, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background-color: #0d0d0d;
     background-image: url('https://i.imgur.com/ZtQwLRy.png');
     background-size: cover;
@@ -16,13 +17,12 @@
 
   .container {
     max-width: 900px;
-    margin: auto;
+    margin: 40px auto;
     padding: 25px;
     background-color: rgba(0,0,0,0.85);
     border: 3px solid #ff1a1a;
     border-radius: 20px;
     box-shadow: 0 0 25px #ff0000;
-    margin-top: 40px;
   }
 
   h1, h2 {
@@ -30,19 +30,12 @@
     text-shadow: 2px 2px 5px black;
   }
 
-  p {
-    font-size: 18px;
-    line-height: 1.6;
-  }
+  h1 { font-size: 28px; }
+  h2 { font-size: 22px; margin-top: 15px; }
 
-  ul {
-    list-style-type: none;
-    padding-left: 0;
-  }
-
-  li {
-    margin-bottom: 10px;
-  }
+  p { font-size: 18px; line-height: 1.6; }
+  ul { list-style-type: none; padding-left: 0; }
+  li { margin-bottom: 10px; }
 
   .suspect {
     background-color: rgba(255, 0, 0, 0.1);
@@ -52,10 +45,16 @@
     border-radius: 10px;
   }
 
-  .questions {
-    margin-top: 25px;
+  .capture img {
+    width: 100%;
+    max-width: 500px;
+    border: 2px solid #ff1a1a;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: block;
   }
 
+  .questions { margin-top: 25px; }
   input[type="text"] {
     display: block;
     margin: 15px auto;
@@ -83,7 +82,7 @@
   }
 
   button:hover {
-    transform: scale(1.1);
+    transform: scale(1.03);
     background-color: #e60000;
   }
 
@@ -92,6 +91,8 @@
     font-size: 20px;
     margin-top: 15px;
   }
+
+  .note { font-size: 0.9rem; color: #ffdede; text-align:center; margin-top:10px; }
 </style>
 </head>
 <body>
@@ -108,43 +109,46 @@
   Leur lien étrange : Hawa et David ont été vus ensemble près du domicile de la victime la veille du drame. Une réunion secrète pourrait cacher un mobile dangereux.</p>
 
   <div class="suspect">
-    <h3>Hawa – Sa voisine</h3>
-    <p>Hawa prétend qu’elle n’a rien vu ni entendu. Pourtant, un carnet de notes dissimulé derrière un meuble contient des références à David et à un plan concernant la victime. Un secret inavoué semble la relier au crime.</p>
+    <h3>Hawa – Voisine</h3>
+    <p><b>Accusation :</b> Accusée d’avoir fourni des informations confidentielles sur les habitudes d’Amelia, de n’avoir pas alerté la police et d’avoir fermé les yeux sur des événements suspects autour de la victime.</p>
   </div>
 
   <div class="suspect">
-    <h3>David – Son patron</h3>
-    <p>David explique qu’il travaillait tard, mais des caméras de surveillance montrent une silhouette ressemblant à David quittant l’immeuble de la victime. Son lien avec Hawa reste mystérieux et inquiétant.</p>
+    <h3>David – Patron</h3>
+    <p><b>Accusation :</b> Soupçonné d’avoir profité des faiblesses professionnelles d’Amelia, d’avoir orchestré certaines interactions douteuses et d’avoir participé indirectement à la conspiration autour de sa mort.</p>
+  </div>
+
+  <div class="capture">
+    <h3>Dernière conversation retrouvée sur le téléphone de Hawa :</h3>
+    <img src="capture_hawa_david.jpeg" alt="Capture d'écran conversation Hawa & David">
   </div>
 
   <div class="questions">
     <h2>Questions à poser</h2>
     <ul>
-      <li>1️⃣ Quelle est la nature exacte du lien entre Hawa et David ?</li>
-      <li>2️⃣ Où étaient-ils réellement la veille du meurtre ?</li>
-      <li>3️⃣ Y a-t-il des preuves de planification ou de complicité ?</li>
-      <li>4️⃣ Que révèlent les notes et indices retrouvés chez Hawa ?</li>
-      <li>5️⃣ Les témoignages et vidéos contredisent-ils leurs versions ?</li>
+      <li>1️⃣ Quelle relation entretenez-vous avec la victime Amelia ?</li>
+      <li>2️⃣ Que faisiez-vous durant la soirée du dimanche entre 18h et 20h ? (racontez en détail)</li>
+      <li>3️⃣ Quel lien avez-vous avec l’autre suspect de cette mission ? (Hawa ↔ David / David ↔ Hawa)</li>
+      <li>4️⃣ Y a-t-il une ou des personnes que vous soupçonnez d’être coupables ?</li>
     </ul>
   </div>
 
-  <p>👉 Notez ici les <strong>5 mots-clés</strong> les plus importants que vous avez relevés pendant les interrogatoires.</p>
-
-  <input type="text" id="secret" placeholder="Entrez les mots-clés ici...">
+  <p>👉 Entrez le code obtenu après interrogatoire :</p>
+  <input type="text" id="secret" placeholder="Entrez le code ici...">
 
   <button onclick="verifier()">Valider la mission</button>
 
   <p id="result"></p>
+  <p class="note">Le mot généré après avoir révélé le code est essentiel pour la suite de l’enquête — conservez-le précieusement.</p>
 </div>
 
 <script>
 function verifier() {
   const reponse = document.getElementById("secret").value.trim().toLowerCase();
-  // mots-clés pour ce duo
-  if (reponse.includes("plan") && reponse.includes("secret") && reponse.includes("caméra") && reponse.includes("notes") && reponse.includes("complicité")) {
-    document.getElementById("result").innerHTML = "✅ Bravo, Inspecteur/Inspectrice ! Vous avez percé les secrets de ce duo… Le mot de passe final est : <b>ombreshd2025</b>";
+  if (reponse === "horreur") {
+    document.getElementById("result").innerHTML = "✅ Mission réussie ! Le mot à conserver pour la suite de l’enquête est : <b>noah</b>";
   } else {
-    document.getElementById("result").innerHTML = "❌ Ce n’est pas encore ça… continuez à interroger et recoupez les indices.";
+    document.getElementById("result").innerHTML = "❌ Ce n’est pas encore ça… assurez-vous de bien entrer le code correct après les auditions.";
   }
 }
 </script>

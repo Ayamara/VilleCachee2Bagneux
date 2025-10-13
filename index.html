@@ -6,12 +6,12 @@
 <title>La Ville Cachée — Bagneux (Accès Enquête)</title>
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
   *{box-sizing:border-box;}
-  html,body{height:100%;margin:0;font-family:Roboto,sans-serif;background:#050304;color:#f7eae9;}
-  
+  html,body{height:100%;margin:0;font-family:Roboto,Arial,sans-serif;background:#050304;color:#f7eae9;}
+
   body{
     background-color:#050304;
     background-image:
@@ -24,7 +24,7 @@
   .blood-overlay{
     position:fixed; inset:0;
     pointer-events:none;
-    background-image: url("blood-large.png");
+    background-image:url("blood-large.png");
     background-repeat:no-repeat;
     background-position:center bottom;
     background-size:100% auto;
@@ -51,18 +51,17 @@
   .card{
     width:100%;
     max-width:980px;
-    background: linear-gradient(180deg, rgba(8,4,4,0.55), rgba(0,0,0,0.75));
-    border: 1px solid rgba(200,0,0,0.14);
+    background:linear-gradient(180deg, rgba(8,4,4,0.55), rgba(0,0,0,0.75));
+    border:1px solid rgba(200,0,0,0.14);
     padding:28px;
     border-radius:14px;
     box-shadow:0 30px 80px rgba(0,0,0,0.85);
-    backdrop-filter: blur(3px);
+    backdrop-filter:blur(3px);
     position:relative;
     overflow:hidden;
   }
 
   h1{
-    font-family:"Cinzel Decorative", serif;
     font-size:clamp(32px,4.6vw,54px);
     color:#ff5050;
     margin:0 0 14px;
@@ -84,7 +83,7 @@
     background-repeat:no-repeat;
     opacity:0.95;
     transform-origin:center;
-    animation: drip 3s infinite;
+    animation:drip 3s infinite;
   }
 
   @keyframes drip{
@@ -103,7 +102,7 @@
   }
 
   .scenario b{color:#ffd7d7;}
-  .scenario .attention{color:#ff5050;font-weight:700;margin-right:6px;}
+  .attention{color:#ff5050;font-weight:700;margin-right:6px;}
 
   .suspects{
     display:flex;
@@ -113,7 +112,7 @@
     justify-content:flex-start;
   }
   .suspect{
-    background: rgba(255,255,255,0.03);
+    background:rgba(255,255,255,0.03);
     padding:6px 10px;
     border-radius:8px;
     border:1px solid rgba(255,0,0,0.06);
@@ -164,9 +163,57 @@
     position:absolute;
     right:-40px; top:-40px;
     width:220px; height:220px;
-    background-image: url('blood-splat-small.png');
-    background-size: cover;
+    background-image:url('blood-splat-small.png');
+    background-size:cover;
     opacity:0.9;
+  }
+
+  /* --- POPUP NOM JOUEUR --- */
+  #namePopup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.92);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:999;
+  }
+
+  .popup-box{
+    background:rgba(20,0,0,0.9);
+    border:2px solid #ff5050;
+    border-radius:14px;
+    padding:30px 24px;
+    text-align:center;
+    width:90%;
+    max-width:400px;
+    box-shadow:0 0 30px rgba(255,0,0,0.3);
+  }
+
+  .popup-box h2{
+    color:#ff5050;
+    margin-bottom:12px;
+  }
+
+  .popup-box input{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid rgba(255,80,80,0.3);
+    background:rgba(0,0,0,0.6);
+    color:#fff;
+    font-size:1rem;
+    margin-bottom:14px;
+  }
+
+  .popup-box button{
+    padding:10px 18px;
+    border:none;
+    border-radius:8px;
+    background:linear-gradient(180deg,#ff6060,#d62828);
+    color:white;
+    font-weight:700;
+    cursor:pointer;
   }
 
   @media (max-width:720px){
@@ -174,7 +221,6 @@
     .suspects{justify-content:center;}
     h1::after{left:12%;right:12%;}
   }
-
 </style>
 </head>
 <body>
@@ -186,6 +232,16 @@
 <div class="blood-overlay"></div>
 <div class="vignette"></div>
 
+<!-- POPUP D’ENTRÉE DE NOM -->
+<div id="namePopup">
+  <div class="popup-box">
+    <h2>Identifiez-vous</h2>
+    <p>Entrez votre nom d’enquêteur / enquêtrice :</p>
+    <input type="text" id="playerName" placeholder="Ex : Inspecteur Alex" />
+    <button id="nameBtn">Valider</button>
+  </div>
+</div>
+
 <section class="stage">
   <div class="card">
     <div class="splat"></div>
@@ -193,29 +249,17 @@
     <h1>LA VILLE CACHÉE — BAGNEUX</h1>
 
     <div class="scenario">
-      <p><span class="attention">⚠️</span><b>Un meurtre a démantelé la ville de Bagneux.</b> Une femme a été retrouvée morte à son domicile.</p>
+      <p><span class="attention">⚠️</span><b>Un meurtre a bouleversé la ville de Bagneux.</b> Une femme nommée <b>Amelia</b> a été retrouvée morte chez elle, à <b>19h07 précises</b>.</p>
 
-      <p><strong>Inspecteur / Inspectrice,</strong> votre mission : retrouver le ou la coupable à travers l’enquête que vous mènerez.</p>
-
-      <p>Douze suspects :</p>
-      <div class="suspects">
-        <span class="suspect">Noah — son copain</span>
-        <span class="suspect">David — son patron</span>
-        <span class="suspect">Maya — sa meilleure amie</span>
-        <span class="suspect">Yanco — son ex</span>
-        <span class="suspect">Pape — son ami d’enfance</span>
-        <span class="suspect">Oumayra — sa sœur</span>
-        <span class="suspect">Cathy — sa pire ennemie</span>
-        <span class="suspect">Hawa — sa voisine</span>
-        <span class="suspect">Oumayma — sa prof de pilates</span>
-        <span class="suspect">Kyle — son collègue</span>
-        <span class="suspect">Nezir — son harceleur</span>
-        <span class="suspect">Tatiana — la femme de ménage</span>
-      </div>
+      <p><strong>Inspecteur / Inspectrice,</strong> votre mission est de découvrir la vérité. Douze suspects sont actuellement sous surveillance.</p>
 
       <p>Pour accéder aux données confidentielles de l’enquête, entrez le mot de passe obtenu via le QR code.</p>
 
-      <p class="note"><span class="attention">⚠️</span>Les places pour la nocturne du Parc Astérix sont limitées !</p>
+      <div class="suspects">
+        <span class="suspect">Noah</span><span class="suspect">David</span><span class="suspect">Maya</span><span class="suspect">Yanco</span>
+        <span class="suspect">Pape</span><span class="suspect">Omayra</span><span class="suspect">Cathy</span><span class="suspect">Hawa</span>
+        <span class="suspect">Oumayma</span><span class="suspect">Kyle</span><span class="suspect">Nezir</span><span class="suspect">Tatiana</span>
+      </div>
 
       <div class="controls">
         <input type="password" id="passwordInput" placeholder="Entrez le mot de passe">
@@ -228,13 +272,29 @@
 </section>
 
 <script>
-  // Musique qui démarre au premier clic
+  // Musique de fond
   document.addEventListener('click', function(){
     document.getElementById('amb').play();
   }, {once:true});
 
+  // Popup d'identification
+  const popup = document.getElementById('namePopup');
+  const nameInput = document.getElementById('playerName');
+  const nameBtn = document.getElementById('nameBtn');
+
+  nameBtn.addEventListener('click', ()=>{
+    const name = nameInput.value.trim();
+    if(name){
+      localStorage.setItem('playerName', name);
+      popup.style.display = 'none';
+      alert("Bienvenue, " + name + " 👁️\nPréparez-vous à entrer dans La Ville Cachée...");
+    } else {
+      alert("Veuillez entrer un nom d'enquêteur pour continuer.");
+    }
+  });
+
   // Vérification mot de passe et redirection
-  const password = "meurtreauvillage2bagneux"; // mot de passe pour cette page
+  const password = "meurtreauvillage2bagneux";
   const input = document.getElementById("passwordInput");
   const btn = document.getElementById("checkBtn");
   const msg = document.getElementById("message");
@@ -244,12 +304,10 @@
     if(enteredPw === password.toLowerCase()){
       msg.style.color = "#80ff80";
       msg.textContent = "✅ Accès autorisé ! Bienvenue dans l’enquête…";
-
-      // Redirection directe vers la page contexte
       window.location.href = "contexte.html";
     } else {
       msg.style.color = "#ff5050";
-      msg.textContent = "❌ Mot de passe incorrect… Réessayez !";
+      msg.textContent = "❌ Mot de passe incorrect… Réessayez.";
     }
   });
 </script>

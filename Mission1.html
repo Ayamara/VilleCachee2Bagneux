@@ -2,12 +2,14 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Mission 1 - La Ville Cachée</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mission 1 - Tatiana & Nezir | La Ville Cachée</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   body {
     margin: 0;
     padding: 0;
-    font-family: 'Creepster', cursive, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #0d0d0d;
     background-image: url('https://i.imgur.com/ZtQwLRy.png');
     background-size: cover;
@@ -16,13 +18,12 @@
 
   .container {
     max-width: 900px;
-    margin: auto;
+    margin: 40px auto;
     padding: 25px;
     background-color: rgba(0,0,0,0.85);
     border: 3px solid #ff1a1a;
     border-radius: 20px;
     box-shadow: 0 0 25px #ff0000;
-    margin-top: 40px;
   }
 
   h1, h2 {
@@ -30,19 +31,12 @@
     text-shadow: 2px 2px 5px black;
   }
 
-  p {
-    font-size: 18px;
-    line-height: 1.6;
-  }
+  h1 { font-size: 28px; }
+  h2 { font-size: 22px; margin-top: 15px; }
 
-  ul {
-    list-style-type: none;
-    padding-left: 0;
-  }
-
-  li {
-    margin-bottom: 10px;
-  }
+  p { font-size: 18px; line-height: 1.6; }
+  ul { list-style-type: none; padding-left: 0; }
+  li { margin-bottom: 10px; }
 
   .suspect {
     background-color: rgba(255, 0, 0, 0.1);
@@ -52,10 +46,22 @@
     border-radius: 10px;
   }
 
-  .questions {
-    margin-top: 25px;
+  .capture img {
+    width: 100%;
+    max-width: 500px;
+    border: 2px solid #ff1a1a;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.2s;
   }
 
+  .capture img:hover {
+    transform: scale(1.05);
+  }
+
+  .questions { margin-top: 25px; }
   input[type="text"] {
     display: block;
     margin: 15px auto;
@@ -83,7 +89,7 @@
   }
 
   button:hover {
-    transform: scale(1.1);
+    transform: scale(1.03);
     background-color: #e60000;
   }
 
@@ -92,6 +98,8 @@
     font-size: 20px;
     margin-top: 15px;
   }
+
+  .note { font-size: 0.9rem; color: #ffdede; text-align:center; margin-top:10px; }
 </style>
 </head>
 <body>
@@ -101,50 +109,46 @@
 </audio>
 
 <div class="container">
-  <h1>Mission 1 : Le Duo Suspect</h1>
-  <h2>Interrogez les premiers suspects</h2>
+  <h1>Mission 1 : Tatiana & Nezir</h1>
+  <h2>Premiers interrogatoires</h2>
 
-  <p>Inspecteur, Inspectrice, votre enquête commence. Deux personnes semblent avoir un lien étrange et mystérieux : <strong>Tatiana</strong> et <strong>Nezir</strong>.  
-  Leur relation est ambiguë… un mélange de peur, de complicité et de secrets partagés. Leur lien pourrait cacher un indice crucial.</p>
+  <p>Inspecteur/Inspectrice, votre enquête commence. Deux suspects ont un lien suspect et mystérieux : <strong>Tatiana</strong> et <strong>Nezir</strong>. Leur relation pourrait cacher un indice crucial.</p>
 
   <div class="suspect">
     <h3>Tatiana – La femme de ménage</h3>
-    <p>Tatiana a accès à toutes les pièces de l’appartement de la victime. Elle affirme n’avoir rien vu ni entendu le soir du meurtre, mais certains voisins l’ont vue sortir précipitamment à 21h30, portant un sac mystérieux.</p>
-  </div>
+    <p><b>Accusation :</b> Soupçonnée d’avoir facilité l’accès à l’appartement d’Amelia à certaines personnes et d’avoir potentiellement participé à l’empoisonnement des chocolats.</p>
+   div class="capture">
 
-  <div class="suspect">
-    <h3>Nezir – Le harceleur</h3>
-    <p>Nezir, connu pour ses comportements obsessionnels, a été aperçu près de l’immeuble à 22h. Des messages intimidants ont été retrouvés sur le téléphone de la victime. Il semble étrangement protéger Tatiana, ce qui intrigue les enquêteurs.</p>
-  </div>
+    <div class="capture">
+  <h3>Dernière conversation retrouvée sur le téléphone de Tatiana :</h3>
+  <img src="capture_tatiana_noah.jpeg" alt="Capture d'écran conversation Tatiana & Noah">
+</div>
 
   <div class="questions">
     <h2>Questions à poser</h2>
     <ul>
-      <li>1️⃣ Pourquoi Tatiana et Nezir étaient-ils ensemble ce soir-là ?</li>
-      <li>2️⃣ Que cache le sac mystérieux de Tatiana ?</li>
-      <li>3️⃣ Nezir a-t-il un mobile personnel ou agit-il pour quelqu’un d’autre ?</li>
-      <li>4️⃣ Les voisins ont-ils remarqué des mouvements suspects ?</li>
-      <li>5️⃣ Quel est le lien exact entre Tatiana et Nezir ?</li>
+      <li>1️⃣ Quelle relation entretenez-vous avec la victime Amelia ?</li>
+      <li>2️⃣ Que faisiez-vous durant la soirée du dimanche entre 18h et 20h ? (racontez en détail)</li>
+      <li>3️⃣ Quel lien avez-vous avec l’autre suspect de cette mission ? (Tatiana ↔ Nezir / Nezir ↔ Tatiana)</li>
+      <li>4️⃣ Y a-t-il une ou des personnes que vous soupçonnez d’être coupables ?</li>
     </ul>
   </div>
 
-  <p>👉 Notez ici les <strong>5 mots-clés</strong> les plus importants que vous avez relevés pendant les interrogatoires.</p>
-
-  <input type="text" id="secret" placeholder="Entrez les mots-clés ici...">
+  <p>👉 Notez bien les mots-clés obtenus après avoir rempli le code. Ils vous aideront à déterminer le coupable final.</p>
+  <input type="text" id="secret" placeholder="Entrez le code/mot obtenu après interrogatoire">
 
   <button onclick="verifier()">Valider la mission</button>
-
   <p id="result"></p>
+  <p class="note">Ces mots-clés seront essentiels pour découvrir le coupable final de l’enquête — conservez-les précieusement.</p>
 </div>
 
 <script>
 function verifier() {
   const reponse = document.getElementById("secret").value.trim().toLowerCase();
-  // mots-clés à adapter selon ce duo
-  if (reponse.includes("sac") && reponse.includes("voisins") && reponse.includes("protéger") && reponse.includes("obsession") && reponse.includes("mystère")) {
-    document.getElementById("result").innerHTML = "✅ Bravo, Inspecteur/Inspectrice ! Vous avez percé les premiers secrets... Le mot de passe suivant est : <b>ombretat2025</b>";
+  if (reponse === "louche") {
+    document.getElementById("result").innerHTML = "✅ Mission réussie ! Le mot à conserver pour la suite de l’enquête est : <b>le</b>";
   } else {
-    document.getElementById("result").innerHTML = "❌ Ce n’est pas encore ça… continuez à interroger et recoupez les indices.";
+    document.getElementById("result").innerHTML = "❌ Ce n’est pas encore ça… assurez-vous de bien entrer le code obtenu après les auditions.";
   }
 }
 </script>

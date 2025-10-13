@@ -2,12 +2,13 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mission 3 - La Ville Cachée</title>
 <style>
   body {
     margin: 0;
     padding: 0;
-    font-family: 'Creepster', cursive, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background-color: #0d0d0d;
     background-image: url('https://i.imgur.com/ZtQwLRy.png');
     background-size: cover;
@@ -16,13 +17,12 @@
 
   .container {
     max-width: 900px;
-    margin: auto;
+    margin: 40px auto;
     padding: 25px;
     background-color: rgba(0,0,0,0.85);
     border: 3px solid #ff1a1a;
     border-radius: 20px;
     box-shadow: 0 0 25px #ff0000;
-    margin-top: 40px;
   }
 
   h1, h2 {
@@ -30,19 +30,12 @@
     text-shadow: 2px 2px 5px black;
   }
 
-  p {
-    font-size: 18px;
-    line-height: 1.6;
-  }
+  h1 { font-size: 28px; }
+  h2 { font-size: 22px; margin-top: 15px; }
 
-  ul {
-    list-style-type: none;
-    padding-left: 0;
-  }
-
-  li {
-    margin-bottom: 10px;
-  }
+  p { font-size: 18px; line-height: 1.6; }
+  ul { list-style-type: none; padding-left: 0; }
+  li { margin-bottom: 10px; }
 
   .suspect {
     background-color: rgba(255, 0, 0, 0.1);
@@ -52,10 +45,16 @@
     border-radius: 10px;
   }
 
-  .questions {
-    margin-top: 25px;
+  .capture img {
+    width: 100%;
+    max-width: 500px;
+    border: 2px solid #ff1a1a;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: block;
   }
 
+  .questions { margin-top: 25px; }
   input[type="text"] {
     display: block;
     margin: 15px auto;
@@ -83,7 +82,7 @@
   }
 
   button:hover {
-    transform: scale(1.1);
+    transform: scale(1.03);
     background-color: #e60000;
   }
 
@@ -92,6 +91,8 @@
     font-size: 20px;
     margin-top: 15px;
   }
+
+  .note { font-size: 0.9rem; color: #ffdede; text-align:center; margin-top:10px; }
 </style>
 </head>
 <body>
@@ -104,47 +105,50 @@
   <h1>Mission 3 : Liens Familiaux Troublants</h1>
   <h2>Interrogez les suspects</h2>
 
-  <p>Inspecteur, Inspectrice, cette fois, votre attention se porte sur <strong>Noah</strong> et <strong>Oumayra</strong>.  
-  Leur lien étrange : Noah est le copain de la victime et Oumayra sa sœur. Mais des tensions familiales profondes pourraient cacher bien des secrets…</p>
+  <p>Inspecteur, Inspectrice, cette fois, votre attention se porte sur <strong>Noah</strong> et <strong>Omayra</strong>.  
+  Leur lien étrange : Noah est le copain de la victime et Omayra sa sœur. Mais des tensions familiales profondes pourraient cacher bien des secrets…</p>
 
   <div class="suspect">
-    <h3>Noah – Son copain</h3>
-    <p>Noah assure avoir passé la soirée à préparer un dîner romantique. Pourtant, des traces de sang sur son gilet et une dispute téléphonique avec Oumayra la veille interrogent les enquêteurs. Son attachement semble dévorant… ou possessif.</p>
+    <h3>Noah – Copain de la victime</h3>
+    <p><b>Accusation :</b> Accusé d’avoir participé activement à la conspiration avec Omayra pour tourmenter Amelia, en exploitant sa naïveté et ses habitudes.</p>
   </div>
 
   <div class="suspect">
-    <h3>Oumayra – Sa sœur</h3>
-    <p>Oumayra prétend être restée chez elle. Cependant, la voisine l’a aperçue entrant dans l’appartement de la victime à 21h30, et elle semblait très agitée. Leur querelle familiale pourrait cacher un mobile…</p>
+    <h3>Oumayra – Sœur de la victime</h3>
+    <p><b>Accusation :</b> Soupçonnée d’avoir conspiré avec Noah pour humilier Amelia et orchestrer des situations compromettantes, jouant sur la jalousie et les tensions familiales.</p>
+  </div>
+
+  <div class="capture">
+    <h3>Dernière conversation retrouvée sur le téléphone de Noah :</h3>
+    <img src="capture_noah_omayra.jpeg" alt="Capture d'écran conversation Noah & Omayra">
   </div>
 
   <div class="questions">
     <h2>Questions à poser</h2>
     <ul>
-      <li>1️⃣ Où étaient-ils exactement la veille et le jour du meurtre ?</li>
-      <li>2️⃣ Quelle était la nature exacte de leur dispute ?</li>
-      <li>3️⃣ Que révèlent les traces de sang sur Noah ?</li>
-      <li>4️⃣ Oumayra avait-elle un mobile personnel ou familial ?</li>
-      <li>5️⃣ Leurs alibis sont-ils cohérents ou contradictoires ?</li>
+      <li>1️⃣ Quelle relation entretenez-vous avec la victime Amelia ?</li>
+      <li>2️⃣ Que faisiez-vous durant la soirée du dimanche entre 18h et 20h ? (racontez en détail)</li>
+      <li>3️⃣ Quel lien avez-vous avec l’autre suspect de cette mission ? (Noah ↔ Omayra / Omayra ↔ Noah)</li>
+      <li>4️⃣ Y a-t-il une ou des personnes que vous soupçonnez d’être coupables ?</li>
     </ul>
   </div>
 
-  <p>👉 Notez ici les <strong>5 mots-clés</strong> les plus importants que vous avez relevés pendant les interrogatoires.</p>
-
-  <input type="text" id="secret" placeholder="Entrez les mots-clés ici...">
+  <p>👉 Entrez le code obtenu après interrogatoire :</p>
+  <input type="text" id="secret" placeholder="Entrez le code ici...">
 
   <button onclick="verifier()">Valider la mission</button>
 
   <p id="result"></p>
+  <p class="note">Le mot généré après avoir révélé le code est essentiel pour la suite de l’enquête — conservez-le précieusement.</p>
 </div>
 
 <script>
 function verifier() {
   const reponse = document.getElementById("secret").value.trim().toLowerCase();
-  // mots-clés pour ce duo
-  if (reponse.includes("dispute") && reponse.includes("sang") && reponse.includes("alibi") && reponse.includes("famille") && reponse.includes("voisine")) {
-    document.getElementById("result").innerHTML = "✅ Bravo, Inspecteur/Inspectrice ! Vous avez percé les secrets familiaux... Le mot de passe suivant est : <b>ombresnofra2025</b>";
+  if (reponse === "gor") {
+    document.getElementById("result").innerHTML = "✅ Mission réussie ! Le mot à conserver pour la suite de l’enquête est : <b>du</b>";
   } else {
-    document.getElementById("result").innerHTML = "❌ Ce n’est pas encore ça… continuez à interroger et recoupez les indices.";
+    document.getElementById("result").innerHTML = "❌ Ce n’est pas encore ça… assurez-vous de bien entrer le code correct après les auditions.";
   }
 }
 </script>

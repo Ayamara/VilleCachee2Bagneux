@@ -1,39 +1,106 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mission Finale - La Ville Cachée</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>La Ville Cachée — Audition finale</title>
+<style>
+body {
+  margin: 0;
+  padding: 30px;
+  font-family: Arial, sans-serif;
+  background-color: #0d0d0d;
+  background-image: url('https://i.imgur.com/4K1vN3p.png');
+  background-size: cover;
+  color: #ff4d4d;
+  line-height: 1.6;
+}
+h1, h2 { text-align: center; color: #ff1a1a; text-shadow: 2px 2px 4px #000; }
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: rgba(0,0,0,0.75);
+  border-radius: 15px;
+  border: 3px solid #ff1a1a;
+  box-shadow: 0 0 20px #ff0000;
+}
+p { font-size: 18px; margin-bottom: 15px; color: #ffeaea; }
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #ff1a1a;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px #ff0000;
+  transition: transform 0.2s;
+}
+button:hover { transform: scale(1.1); background-color: #e60000; }
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+  font-size: 16px;
+}
+.finalMessage { display:none; text-align:center; margin-top:20px; }
+a { color:#fff; text-decoration:none; background:#ff1a1a; padding:10px 20px; border-radius:8px; display:inline-block; margin-top:15px; }
+a:hover { background:#e60000; }
+</style>
 </head>
 <body>
-  <div class="overlay">
-    <h1>🎯 Mission Finale 🎯</h1>
-    <p>Bravo ! Vous avez trouvé toutes les missions… mais voici le dernier défi.</p>
 
-    <p>Résolvez l’énigme pour obtenir le code d’accès à la <strong>Grande Sortie au Parc Astérix</strong> :</p>
-
-    <p><em>“Je suis un lieu où l’aventure et la magie s’unissent,  
-    mon nom commence par A et finit par X. Quel est mon nom ?”</em></p>
-
-    <input type="text" id="finalKey" placeholder="Entrez votre réponse" />
-    <button onclick="checkFinalKey()">Valider</button>
-    <p id="finalMessage"></p>
+<div class="container">
+  <h1>Audition finale</h1>
+  <p>Inspecteur, grâce à votre perspicacité, vous allez maintenant ré-auditionner <strong>Noah</strong> pour connaître la vraie version des faits.</p>
+  
+  <h2>Ré-audition de Noah</h2>
+  <p id="auditionText">Noah s'avance et raconte enfin la vérité : <br>
+  "Le soir du 19 octobre, tout a dégénéré. Je n'avais pas l'intention de la tuer, mais une dispute a mal tourné et Amelia a été accidentellement étranglée. J'ai paniqué et essayé de cacher les preuves..."</p>
+  
+  <div class="checkbox-container">
+    <input type="checkbox" id="confirmCheck">
+    <label for="confirmCheck">✅ J'atteste avoir pris connaissance de la vraie version des faits.</label>
   </div>
+  
+  <button id="validateBtn">Confirmer l'audition</button>
 
-  <script>
-    function checkFinalKey() {
-      const finalKey = document.getElementById("finalKey").value.toLowerCase();
-      const finalMessage = document.getElementById("finalMessage");
+  <div class="finalMessage" id="finalMessage">
+    <h2>Félicitations Inspecteur !</h2>
+    <p>Grâce à votre enquête, Noah a été jugé :</p>
+    <ul>
+      <li>Durée de prison : 5 ans</li>
+      <li>Amende : 10 000€</li>
+      <li>Sursis : 2 ans</li>
+      <li>Interdiction de contacter la famille d'Amelia</li>
+    </ul>
+    <p>Votre dévouement a permis de rendre justice.</p>
+    <a href="https://www.exemple-billetterie.com" target="_blank">🎟 Accéder à la billetterie de la grande sortie</a>
+  </div>
+</div>
 
-      if (finalKey === "parc astérix" || finalKey === "parc asterix") {
-        finalMessage.style.color = "lime";
-        finalMessage.innerHTML = "✅ Félicitations ! Vous avez débloqué la Grande Sortie ! <br> Préparez-vous pour l’aventure ! 🎢";
-      } else {
-        finalMessage.style.color = "red";
-        finalMessage.textContent = "❌ Ce n’est pas encore la bonne réponse… Cherchez bien dans vos missions !";
-      }
-    }
-  </script>
+<script>
+// récupérer le nom de l'inspecteur
+let nomUser = localStorage.getItem('nomUser') || 'Inspecteur';
+document.getElementById('auditionText').innerHTML = `Inspecteur <strong>${nomUser}</strong>, Noah s'avance et raconte enfin la vérité :<br>
+"Le soir du 12 octobre, tout a dégénéré. Je n'avais pas l'intention de la tuer, mais une dispute a mal tourné et Amelia a été accidentellement étranglée. J'ai paniqué et essayé de cacher les preuves..."`;
+
+document.getElementById('validateBtn').addEventListener('click', ()=>{
+  const check = document.getElementById('confirmCheck').checked;
+  if(check){
+    document.getElementById('finalMessage').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    alert("Vous devez cocher la case pour confirmer que vous avez pris connaissance de la vérité !");
+  }
+});
+</script>
+
 </body>
 </html>
