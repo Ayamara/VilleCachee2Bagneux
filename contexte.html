@@ -7,7 +7,7 @@
 <style>
 body {
   margin: 0;
-  padding: 30px;
+  padding: 20px;
   font-family: Arial, sans-serif;
   background-color: #0d0d0d;
   background-image: url('https://i.imgur.com/4K1vN3p.png');
@@ -15,7 +15,11 @@ body {
   color: #ff4d4d;
   line-height: 1.6;
 }
-h1, h2 { text-align: center; color: #ff1a1a; text-shadow: 2px 2px 4px #000; }
+h1, h2 { 
+  text-align: center; 
+  color: #ff1a1a; 
+  text-shadow: 2px 2px 4px #000; 
+}
 .container, .card {
   max-width: 1000px;
   margin: auto;
@@ -30,36 +34,51 @@ ul { margin-left: 20px; margin-bottom: 20px; }
 li { margin-bottom: 8px; font-weight: bold; }
 button {
   display: block;
-  margin: 20px auto;
-  padding: 15px 30px;
-  font-size: 18px;
+  margin: 15px auto;
+  padding: 12px 25px;
+  font-size: 16px;
   background-color: #ff1a1a;
   color: #fff;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   text-transform: uppercase;
-  box-shadow: 0 0 10px #ff0000;
+  box-shadow: 0 0 8px #ff0000;
   transition: transform 0.2s;
 }
-button:hover { transform: scale(1.1); background-color: #e60000; }
-.missions { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin-top: 18px; }
-.m { padding: 14px; border-radius: 10px; background: rgba(30,0,0,0.25); border: 1px solid rgba(255,10,10,0.08); display: flex; justify-content: space-between; align-items: center; }
-.m .title { font-weight: 700; }
+button:hover { transform: scale(1.05); background-color: #e60000; }
+.missions { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  gap: 12px; 
+  margin-top: 18px; 
+}
+.m { 
+  padding: 12px; 
+  border-radius: 10px; 
+  background: rgba(30,0,0,0.25); 
+  border: 1px solid rgba(255,10,10,0.08); 
+  display: flex; 
+  flex-direction: column;
+}
+.m .title { font-weight: 700; margin-bottom: 8px; }
+.m button { margin-top: auto; width: 100%; }
 footer { margin-top: 16px; color: #bda; font-size: .9rem; text-align:center; }
 .bubble {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: rgba(0,0,0,0.9);
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.95);
   color: #ff4d4d;
-  padding: 20px;
+  padding: 15px;
   border: 2px solid #ff1a1a;
   border-radius: 15px;
   box-shadow: 0 0 15px #ff0000;
-  max-width: 300px;
+  max-width: 90%;
   display: none;
   font-size: 16px;
+  z-index: 100;
 }
 .bubble input {
   width: 100%;
@@ -128,12 +147,13 @@ document.getElementById('intro').innerHTML = `Inspecteur <strong>${nomUser}</str
 // lister les missions
 const missions = [
   { id:1, title:"Mission 1 — Tatiana & Nezir", file:"Mission1.html" },
-  { id:2, title:"Mission 2 — Oumayma & Kyle", file:"mission2.html" },
+  { id:2, title:"Mission 2 — Oumayma & Kyle", file:"Mission2.html" },
   { id:3, title:"Mission 3 — Noah & Omayra", file:"Mission3.html" },
-  { id:4, title:"Mission 4 — Cathy & Yanco", file:"mission4.html" },
+  { id:4, title:"Mission 4 — Cathy & Yanco", file:"Mission4.html" },
   { id:5, title:"Mission 5 — Pape & Maya", file:"Mission5.html" },
   { id:6, title:"Mission 6 — Hawa & David", file:"Mission6.html" }
 ];
+
 const listEl = document.getElementById('missionsList');
 missions.forEach(m=>{
   const div = document.createElement('div');
@@ -158,7 +178,7 @@ document.getElementById('coupableBtn').addEventListener('click', ()=>{
   const val = document.getElementById('coupableInput').value.trim().toLowerCase();
   if(val === 'lecoupabledumeurtreestnoah'){
     localStorage.setItem('coupableTrouve', 'true');
-    window.location.href = 'finale.html'; // page finale à créer
+    window.location.href = 'finale.html';
   } else {
     alert("Ce n'est pas la bonne réponse, continuez vos investigations !");
   }
