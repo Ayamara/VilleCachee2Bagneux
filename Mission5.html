@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mission 5 - La Ville Cachée</title>
+<title>Mission 6 - La Ville Cachée</title>
 <style>
   body {
     margin: 0;
@@ -102,25 +102,25 @@
 </audio>
 
 <div class="container">
-  <h1>Mission 5 : Liaisons Cachées</h1>
+  <h1>Mission 6 : Secrets Croisés</h1>
   <h2>Interrogez les suspects</h2>
 
-  <p>Inspecteur, Inspectrice, il est temps de se concentrer sur <strong>Pape</strong> et <strong>Maya</strong>.  
-  Leur lien étrange : Pape et Maya semblent cacher un secret commun lié à la victime… un pacte ancien ou une dette mystérieuse.</p>
+  <p>Inspecteur, Inspectrice, il est temps de se concentrer sur <strong>Hawa</strong> et <strong>David</strong>.  
+  Leur lien étrange : Hawa et David ont été vus ensemble près du domicile de la victime la veille du drame. Une réunion secrète pourrait cacher un mobile dangereux.</p>
 
   <div class="suspect">
-    <h3>Pape – Ami d’enfance</h3>
-    <p><b>Accusation :</b> Accusé d’avoir voulu cambrioler l’appartement d’Amelia, d’avoir participé à des plans dangereux et d’avoir contribué indirectement à la situation qui a conduit à sa mort.</p>
+    <h3>Hawa – Voisine</h3>
+    <p><b>Accusation :</b> Accusée d’avoir fourni des informations confidentielles sur les habitudes d’Amelia, de n’avoir pas alerté la police et d’avoir fermé les yeux sur des événements suspects autour de la victime.</p>
   </div>
 
   <div class="suspect">
-    <h3>Maya – Meilleure amie</h3>
-    <p><b>Accusation :</b> Soupçonnée d’avoir eu connaissance des plans de Pape et d’avoir été impliquée involontairement dans la conspiration, par peur ou par manque de réaction face à la situation.</p>
+    <h3>David – Patron</h3>
+    <p><b>Accusation :</b> Soupçonné d’avoir profité des faiblesses professionnelles d’Amelia, d’avoir orchestré certaines interactions douteuses et d’avoir participé indirectement à la conspiration autour de sa mort.</p>
   </div>
 
   <div class="capture">
-    <h3>Dernière conversation retrouvée sur le téléphone de Maya :</h3>
-    <img src="capture_pape_maya.jpeg" alt="Capture d'écran conversation Pape & Maya">
+    <h3>Dernière conversation retrouvée sur le téléphone de Hawa :</h3>
+    <img src="capture_hawa_david.jpeg" alt="Capture d'écran conversation Hawa & David">
   </div>
 
   <div class="questions">
@@ -128,7 +128,7 @@
     <ul>
       <li>1️⃣ Quelle relation entretenez-vous avec la victime Amelia ?</li>
       <li>2️⃣ Que faisiez-vous durant la soirée du dimanche entre 18h et 20h ? (racontez en détail)</li>
-      <li>3️⃣ Quel lien avez-vous avec l’autre suspect de cette mission ? (Maya ↔ Pape / Pape ↔ Maya)</li>
+      <li>3️⃣ Quel lien avez-vous avec l’autre suspect de cette mission ? (Hawa ↔ David / David ↔ Hawa)</li>
       <li>4️⃣ Y a-t-il une ou des personnes que vous soupçonnez d’être coupables ?</li>
     </ul>
   </div>
@@ -145,7 +145,7 @@
 <script>
 function verifier() {
   const reponse = document.getElementById("secret").value.trim().toLowerCase();
-  if (reponse === "peur") {
+  if (reponse === "horreur") {
     document.getElementById("result").innerHTML = "✅ Mission réussie ! Le mot à conserver pour la suite de l’enquête est : <b>est</b>";
   } else {
     document.getElementById("result").innerHTML = "❌ Ce n’est pas encore ça… assurez-vous de bien entrer le code correct après les auditions.";

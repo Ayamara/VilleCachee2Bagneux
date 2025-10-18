@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mission 6 - La Ville Cachée</title>
+<title>Mission 2 - La Ville Cachée</title>
 <style>
   body {
     margin: 0;
@@ -102,25 +102,24 @@
 </audio>
 
 <div class="container">
-  <h1>Mission 6 : Secrets Croisés</h1>
+  <h1>Mission 2 : Secrets de Bureau</h1>
   <h2>Interrogez les suspects</h2>
 
-  <p>Inspecteur, Inspectrice, il est temps de se concentrer sur <strong>Hawa</strong> et <strong>David</strong>.  
-  Leur lien étrange : Hawa et David ont été vus ensemble près du domicile de la victime la veille du drame. Une réunion secrète pourrait cacher un mobile dangereux.</p>
+  <p>Inspecteur, Inspectrice, la deuxième piste vous conduit à un duo mystérieux : <strong>Oumayma</strong> et <strong>Kyle</strong>. Leur lien est étrange et semble cacher des informations liées à la victime Amelia. Leurs alibis sont flous… et leurs intentions suspectes.</p>
 
   <div class="suspect">
-    <h3>Hawa – Voisine</h3>
-    <p><b>Accusation :</b> Accusée d’avoir fourni des informations confidentielles sur les habitudes d’Amelia, de n’avoir pas alerté la police et d’avoir fermé les yeux sur des événements suspects autour de la victime.</p>
+    <h3>Oumayma – Prof de Pilates</h3>
+    <p><b>Accusation :</b> Divulgation d’informations sur les habitudes et routines d’Amelia à des tiers et conspiration pour créer des situations compromettantes. Elle avait des taches rouges sur ses chaussures et son sac a été retrouvé près de la scène du crime.</p>
   </div>
 
   <div class="suspect">
-    <h3>David – Patron</h3>
-    <p><b>Accusation :</b> Soupçonné d’avoir profité des faiblesses professionnelles d’Amelia, d’avoir orchestré certaines interactions douteuses et d’avoir participé indirectement à la conspiration autour de sa mort.</p>
+    <h3>Kyle – Collègue de travail</h3>
+    <p><b>Accusation :</b> Perturbation psychologique et manipulation de la victime à travers des interactions professionnelles correspondant à des plans malveillants. Il semble vouloir protéger Oumayma.</p>
   </div>
 
   <div class="capture">
-    <h3>Dernière conversation retrouvée sur le téléphone de Hawa :</h3>
-    <img src="capture_hawa_david.jpeg" alt="Capture d'écran conversation Hawa & David">
+    <h3>Dernière conversation retrouvée sur le téléphone d’Oumayma :</h3>
+    <img src="capture_oumaysma_kyle.jpeg" alt="Capture d'écran conversation Oumayma & Kyle">
   </div>
 
   <div class="questions">
@@ -128,7 +127,7 @@
     <ul>
       <li>1️⃣ Quelle relation entretenez-vous avec la victime Amelia ?</li>
       <li>2️⃣ Que faisiez-vous durant la soirée du dimanche entre 18h et 20h ? (racontez en détail)</li>
-      <li>3️⃣ Quel lien avez-vous avec l’autre suspect de cette mission ? (Hawa ↔ David / David ↔ Hawa)</li>
+      <li>3️⃣ Quel lien avez-vous avec l’autre suspect de cette mission ? (Oumayma ↔ Kyle / Kyle ↔ Oumayma)</li>
       <li>4️⃣ Y a-t-il une ou des personnes que vous soupçonnez d’être coupables ?</li>
     </ul>
   </div>
@@ -145,7 +144,7 @@
 <script>
 function verifier() {
   const reponse = document.getElementById("secret").value.trim().toLowerCase();
-  if (reponse === "horreur") {
+  if (reponse === "lettre") {
     document.getElementById("result").innerHTML = "✅ Mission réussie ! Le mot à conserver pour la suite de l’enquête est : <b>noah</b>";
   } else {
     document.getElementById("result").innerHTML = "❌ Ce n’est pas encore ça… assurez-vous de bien entrer le code correct après les auditions.";

@@ -147,11 +147,11 @@ document.getElementById('intro').innerHTML = `Inspecteur <strong>${nomUser}</str
 // lister les missions
 const missions = [
   { id:1, title:"Mission 1 — Tatiana & Nezir", file:"Mission1.html" },
-  { id:2, title:"Mission 2 — Oumayma & Kyle", file:"mission2.html" },
+  { id:2, title:"Mission 2 — Pape & Maya", file:"mission2.html" },
   { id:3, title:"Mission 3 — Noah & Omayra", file:"Mission3.html" },
   { id:4, title:"Mission 4 — Cathy & Yanco", file:"mission4.html" },
-  { id:5, title:"Mission 5 — Pape & Maya", file:"Mission5.html" },
-  { id:6, title:"Mission 6 — Hawa & David", file:"mission6.html" }
+  { id:5, title:"Mission 5 — Hawa & David", file:"Mission5.html" },
+  { id:6, title:"Mission 6 — Oumayma & Kyle", file:"mission6.html" }
 ];
 
 const listEl = document.getElementById('missionsList');
@@ -176,7 +176,7 @@ document.getElementById('finalBtn').addEventListener('click', ()=>{
 // validation du coupable dans la bulle
 document.getElementById('coupableBtn').addEventListener('click', ()=>{
   const val = document.getElementById('coupableInput').value.trim().toLowerCase();
-  if(val === 'lecoupabledumeurtreestnoah'){
+  if(val === 'le coupable du meurtre est noah'){
     localStorage.setItem('coupableTrouve', 'true');
     window.location.href = 'finale.html';
   } else {
